@@ -45,6 +45,9 @@ router.get('/getAll', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 })
+// await is used within async functions to pause execution until a Promise is settled (either resolved or rejected).
+// The try block is used to enclose a block of code where exceptions (errors) might occur.
+// If an error occurs within the try block, the control is passed to the catch block.
 
 //Get by ID Method
 // router.get('/getOne/:id', (req, res) => {
@@ -60,6 +63,17 @@ router.get('/getOne/:id', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 })
+// e('/delete/:id', async (req, res) => {: Defines a route for handling HTTP DELETE requests at the path '/delete/:id'. It's an asynchronous function that takes the request and response objects.
+
+// const id = req.params.id;: Extracts the 'id' parameter from the request parameters.
+
+// const data = await Model.findByIdAndDelete(id);: Uses Mongoose to find a document by its ID and delete it. The result is stored in the variable data.
+
+// res.send(Document with ${data.name} has been deleted..);: Sends a response indicating that the document with a specific name has been deleted. It uses template literals to include the name from the deleted document.
+
+// } catch (error) {: Begins a block for handling errors that might occur in the try block.
+
+// res.status(400).json({ message: error.message }): If an error occurs, send
 
 //Update by ID Method
 // router.patch('/update/:id', (req, res) => {
@@ -83,6 +97,26 @@ router.patch('/update/:id', async (req, res) => {
         res.status(400).json({ message: error.message })
     }
 })
+
+// router.patch('/update/:id', async (req, res) => {: This line sets up the HTTP patch request route with the URL '/update/:id'. The req and res parameters are instances of the Express.js Request and Response objects, respectively.
+
+// try {: This line starts a try-catch block. The purpose of this block is to catch any errors that might occur while processing the HTTP request.
+
+    // const id = req.params.id;: This line retrieves the id parameter from the URL. In Express.js, URL parameters are accessed through the req.params object.
+    
+    // const updatedData = req.body;: This line retrieves the body of the HTTP request, which contains the data to be updated.
+    
+    // const options = { new: true };: This line creates an options object with the new property set to true. This option tells the findByIdAndUpdate function to return the updated document.
+    
+    // const result = await Model.findByIdAndUpdate(id, updatedData, options);: This line updates the document in the database that matches the given id. The findByIdAndUpdate function takes three arguments: the id of the document to update, the updatedData to be applied, and the options object.
+    
+    // res.send(result);: This line sends the updated document as the response to the HTTP request.
+    
+    // } catch (error) {: This line starts the catch block of the try-catch structure.
+    
+    // res.status(400).json({ message: error.message });: This line sends an HTTP response with a status code of 400 (Bad Request) and a JSON object containing the error message.
+    
+    // });: This line ends the router.patch route definition.
 
 // //Delete by ID Method
 // router.delete('/delete/:id', (req, res) => {
