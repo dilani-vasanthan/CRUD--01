@@ -13,10 +13,10 @@ const dataSchema = new mongoose.Schema({
         required: true,
         type: String
     },
-    salary: {
+    Salary: {
         required: true,
         type: Number
     }
 })
 
-module.exports = mongoose.employeemodel('Data', dataSchema)
+module.exports = mongoose.model('user', dataSchema)

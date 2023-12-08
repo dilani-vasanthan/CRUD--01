@@ -3,13 +3,15 @@ const express = require('express');
 const router = express.Router()
 
 module.exports = router;
-
+const Model = require('../models/employeemodel');
 
 // 
 router.post('/post', async (req, res) => {
     const data = new Model({
-        name: req.body.name,
-        age: req.body.age
+        EmployeeName: req.body.EmployeeName,
+        Department: req.body.Department,
+        Destination:req.body. Destination,
+        Salary:req.body.Salary
     })
 
     try {
@@ -94,5 +96,4 @@ router.delete('/delete/:id', async (req, res) => {
 })
 
 // model
-// const Model = require('../models/model');
-const Model = require('../models/models');
+
